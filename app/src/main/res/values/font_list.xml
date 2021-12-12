@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="spinnerItems">
+        <item>sans serif</item>
+        <item>aguafina script</item>
+        <item>aladin</item>
+        <item>amatica sc</item>
+        <item>bilbo swash caps</item>
+        <item>caveat</item>
+        <item>cedarville cursive</item>
+        <item>fredericka the great</item>
+        <item>homemade apple</item>
+        <item>luckiest guy</item>
+        <item>petit format script</item>
+        <item>rock salt</item>
+        <item>trade winds</item>
+
+    </string-array>
+
+</resources>

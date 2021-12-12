@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/add_icon"
+        android:title="Add"
+        android:icon="@drawable/ic_add_black"
+        app:showAsAction="ifRoom" >
+        <menu>
+            <item android:id="@+id/add_post"
+                android:title="Post" />
+            <item android:id="@+id/add_article"
+                android:title="Article" />
+            <item android:id="@+id/add_journey"
+                android:title="Journey" />
+            <item android:id="@+id/add_plan"
+                android:title="Plan" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/edit_icon"
+        android:title="Edit"
+        android:icon="@drawable/ic_edit_black"
+        app:showAsAction="ifRoom" >
+        <menu>
+            <item android:id="@+id/edit_name"
+                android:title="Edit Name" />
+            <item android:id="@+id/edit_avatar"
+                android:title="Edit Profile Picture" />
+            <item android:id="@+id/edit_cover"
+                android:title="Edit Cover Photo" />
+            <item android:id="@+id/edit_bio"
+                android:title="Edit Bio" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/action_logout"
+        android:title="Logout" />
+
+    <item android:id="@+id/submit"
+        android:title="Done"
+        app:showAsAction="ifRoom" />
+
+</menu>

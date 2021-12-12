@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "876157428819",
+    "project_id": "mdp-cw-jourvel",
+    "storage_bucket": "mdp-cw-jourvel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876157428819:android:1670638c01a618855312a6",
+        "android_client_info": {
+          "package_name": "com.example.mdpcwjourvel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876157428819-mgdgvc6jfj0rvo9ceiucm0eog0dbk6ch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGf_8Rs2GQxWk7ErR9wk6sxI5z7TVD3ic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876157428819-mgdgvc6jfj0rvo9ceiucm0eog0dbk6ch.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

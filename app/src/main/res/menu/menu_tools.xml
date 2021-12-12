@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/add_text_icon"
+        android:title="Add Text"
+        android:icon="@drawable/ic_add_text_black"
+        app:showAsAction="ifRoom" >
+    </item>
+    <item android:id="@+id/add_picture_icon"
+        android:title="Add Picture"
+        android:icon="@drawable/ic_add_photo_black"
+        app:showAsAction="ifRoom" >
+    </item>
+    <!--<item android:id="@+id/add_picture_icon"
+        android:title="Add Picture"
+        android:icon="@drawable/ic_add_photo_black"
+        app:showAsAction="ifRoom" >
+        <menu>
+            <item android:id="@+id/add_post"
+                android:title="Post" />
+            <item android:id="@+id/add_article"
+                android:title="Article" />
+            <item android:id="@+id/add_journey"
+                android:title="Journey" />
+            <item android:id="@+id/add_plan"
+                android:title="Plan" />
+        </menu>
+    </item>-->
+
+</menu>

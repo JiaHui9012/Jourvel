@@ -45,6 +45,8 @@ This application is a travel-based application which allows users to make their 
 * There are two ways to display the posts and articles: (Not Yet Developed)
   - Popular Tab: show all the popular and latest posts and articles
   - Following Tab: show the latest posts and articles from people you follow
+* Users can like, comment, save posts/articles they want. (Not Yet Developed)
+* Users can also add useful or helpful posts/articles into their plans. (Not Yet Developed)
 * Users can view and manage the people they follow (Not Yet Developed)
 
 ### Search Page <a name="searchPage"></a>

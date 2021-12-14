@@ -7,16 +7,24 @@
     tools:context=".PlanFragment">
 
     <RelativeLayout
-        android:id="@+id/journal_content"
+        android:id="@+id/plan_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/notebook_template"
-        android:padding="20dp">
+        android:background="@drawable/notebook_template" >
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:hint="No plan is added yet" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/myPlanRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Add your plan here"
-            android:textSize="30dp"/>
+            android:orientation="horizontal">
+        </androidx.recyclerview.widget.RecyclerView>
     </RelativeLayout>
 
 </FrameLayout>

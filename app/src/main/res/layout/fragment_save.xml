@@ -13,10 +13,14 @@
         android:background="@drawable/notebook_template"
         android:padding="20dp">
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Save your favourite posts or articles here"
-            android:textSize="30dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_marginTop="70dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:hint="No save yet" />
     </RelativeLayout>
 
 </FrameLayout>

@@ -30,7 +30,6 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
@@ -63,14 +62,13 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 
-public class AddJourneyActivity extends AppCompatActivity {
+public class AddPlanActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
 
     ActionBar actionBar;
-    ImageView journeyIV;
-    RelativeLayout journeyLayout;
+    RelativeLayout planLayout;
 
     boolean isBold = false;
     boolean isItalic = false;
@@ -96,10 +94,11 @@ public class AddJourneyActivity extends AppCompatActivity {
     //progress dialog
     ProgressDialog progressDialog;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_journey);
+        setContentView(R.layout.activity_add_plan);
 
         firebaseAuth =  FirebaseAuth.getInstance();
         checkUserStatus();
@@ -113,15 +112,15 @@ public class AddJourneyActivity extends AppCompatActivity {
         storagePermissions = new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
         actionBar = getSupportActionBar();
-        actionBar.setTitle("Add Journey");
+        actionBar.setTitle("Add Plan");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         progressDialog = new ProgressDialog(this);
 
-        journeyLayout = findViewById(R.id.journey_content);
+        planLayout = findViewById(R.id.plan_content);
 
-        //get some info of current user to include in journey
+        //get some info of current user to include in plan
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         Query query = databaseReference.orderByChild("email").equalTo(email);
         query.addValueEventListener(new ValueEventListener() {
@@ -137,7 +136,6 @@ public class AddJourneyActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener selectedListener =  new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -269,12 +267,12 @@ public class AddJourneyActivity extends AppCompatActivity {
                 if(!hasFocus) {
                     if(textSizeET.getText().toString().matches("")) {
                         textSizeET.setText("18");
-                        Toast.makeText(AddJourneyActivity.this,
+                        Toast.makeText(AddPlanActivity.this,
                                 "Please enter a number", Toast.LENGTH_SHORT)
                                 .show();
                     }
                     else {
-                        Toast.makeText(AddJourneyActivity.this,
+                        Toast.makeText(AddPlanActivity.this,
                                 "Remember to click enter to change the font size", Toast.LENGTH_SHORT)
                                 .show();
                     }
@@ -288,7 +286,7 @@ public class AddJourneyActivity extends AppCompatActivity {
                         (keyCode==KeyEvent.KEYCODE_ENTER)){
                     if(textSizeET.getText().toString().matches("")){
                         textSizeET.setText("18");
-                        Toast.makeText(AddJourneyActivity.this,
+                        Toast.makeText(AddPlanActivity.this,
                                 "Please enter a number", Toast.LENGTH_SHORT)
                                 .show();
                     }
@@ -378,7 +376,7 @@ public class AddJourneyActivity extends AppCompatActivity {
                 //validate if user has entered something or not
                 if(!TextUtils.isEmpty(value)) {
                     //progressDialog.show();
-                    TextView textView = new TextView(AddJourneyActivity.this);
+                    TextView textView = new TextView(AddPlanActivity.this);
                     textView.setText(value);
                     textView.setTextSize(textSize);
                     if(isBold&&isItalic) {
@@ -393,11 +391,11 @@ public class AddJourneyActivity extends AppCompatActivity {
                     else {
                         textView.setTypeface(typeface, Typeface.NORMAL);
                     }
-                    journeyLayout.addView(textView);
+                    planLayout.addView(textView);
                     textView.setOnTouchListener(onTouchListener());
                 }
                 else {
-                    Toast.makeText(AddJourneyActivity.this, "No text is added", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddPlanActivity.this, "No text is added", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -545,14 +543,14 @@ public class AddJourneyActivity extends AppCompatActivity {
                 //add image view
                 ImageView imageView = new ImageView(this);
                 imageView.setImageURI(image_uri);
-                journeyLayout.addView(imageView);
+                planLayout.addView(imageView);
                 imageView.setOnTouchListener(onTouchListener());
             }
             else if(requestCode == IMAGE_PICK_CAMERA_CODE) {
                 // image is picked from camera, get uri
                 ImageView imageView = new ImageView(this);
                 imageView.setImageURI(image_uri);
-                journeyLayout.addView(imageView);
+                planLayout.addView(imageView);
                 imageView.setOnTouchListener(onTouchListener());
             }
         }
@@ -700,19 +698,19 @@ public class AddJourneyActivity extends AppCompatActivity {
         //get item id
         int id = item.getItemId();
         if(id == R.id.submit) {
-            Bitmap bitmap = Bitmap.createBitmap(journeyLayout.getWidth(), journeyLayout.getHeight(),
+            Bitmap bitmap = Bitmap.createBitmap(planLayout.getWidth(), planLayout.getHeight(),
                     Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(bitmap);
-            journeyLayout.draw(canvas);
+            planLayout.draw(canvas);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
             byte[] data = byteArrayOutputStream.toByteArray();
             //progress dialog
-            progressDialog.setMessage("Adding your journey...");
+            progressDialog.setMessage("Adding your plan...");
             progressDialog.show();
-            //for journey content, id, add time
+            //for plan content, id, add time
             String timeStamp = String.valueOf(System.currentTimeMillis());
-            String filePathAndName = "Journeys/" + "journey_" + uid + timeStamp;
+            String filePathAndName = "Plans/" + "plan_" + uid + timeStamp;
             StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(filePathAndName);
             storageReference.putBytes(data)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -722,18 +720,18 @@ public class AddJourneyActivity extends AppCompatActivity {
                             while (!uriTask.isSuccessful());
                             String downloadUri = uriTask.getResult().toString();
                             if(uriTask.isSuccessful()) {
-                                //uri is received upload journey to firebase Database
+                                //uri is received upload plan to firebase Database
                                 HashMap<Object, String> hashMap = new HashMap<>();
-                                //put journey info
+                                //put plan info
                                 hashMap.put("uid", uid);
                                 hashMap.put("name", name);
                                 hashMap.put("email", email);
                                 hashMap.put("username", username);
-                                hashMap.put("journeyID", uid+timeStamp);
-                                hashMap.put("journey", downloadUri);
+                                hashMap.put("planID", uid+timeStamp);
+                                hashMap.put("plan", downloadUri);
                                 hashMap.put("uploadTime", timeStamp);
-                                //path to store journey data
-                                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Journeys");
+                                //path to store plan data
+                                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Plans");
                                 //put data in the reference
                                 databaseReference.child(uid+timeStamp).setValue(hashMap)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -741,7 +739,7 @@ public class AddJourneyActivity extends AppCompatActivity {
                                             public void onSuccess(Void unused) {
                                                 //added successfully
                                                 progressDialog.dismiss();
-                                                Toast.makeText(AddJourneyActivity.this, "Journey Added", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(AddPlanActivity.this, "Plan Added", Toast.LENGTH_SHORT).show();
                                                 //back to profile fragment
                                                 finish();
                                             }
@@ -750,7 +748,7 @@ public class AddJourneyActivity extends AppCompatActivity {
                                     public void onFailure(@NonNull Exception e) {
                                         //failed adding data
                                         progressDialog.dismiss();
-                                        Toast.makeText(AddJourneyActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(AddPlanActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
                             }
@@ -760,7 +758,7 @@ public class AddJourneyActivity extends AppCompatActivity {
                 public void onFailure(@NonNull Exception e) {
                     //failed uploading image
                     progressDialog.dismiss();
-                    Toast.makeText(AddJourneyActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddPlanActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

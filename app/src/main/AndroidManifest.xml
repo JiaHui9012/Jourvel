@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MDPCWJourvel">
         <activity
+            android:name=".AddPlanActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddJourneyActivity"
             android:exported="false" />
         <activity
@@ -21,7 +24,7 @@
             android:exported="false" />
         <activity
             android:name=".DashboardActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,7 +37,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
-
     </application>
 
 </manifest>

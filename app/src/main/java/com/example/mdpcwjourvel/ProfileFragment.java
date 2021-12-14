@@ -153,6 +153,10 @@ public class ProfileFragment extends Fragment {
                     bioTV.setText(bio);
                     try {
                         Picasso.get().load(image).into(avatarIV);
+                    }
+                    catch (Exception e) {
+                    }
+                    try {
                         Picasso.get().load(cover).into(coverIV);
                     }
                     catch (Exception e) {
@@ -324,6 +328,10 @@ public class ProfileFragment extends Fragment {
             case R.id.add_journey:
                 progressDialog.setMessage("Add Journey");
                 startActivity(new Intent(getActivity(), AddJourneyActivity.class));
+                return true;
+            case R.id.add_plan:
+                progressDialog.setMessage("Add Plan");
+                startActivity(new Intent(getActivity(), AddPlanActivity.class));
                 return true;
             case R.id.edit_name:
                 progressDialog.setMessage("Edit Name");

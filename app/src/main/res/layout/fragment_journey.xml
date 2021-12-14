@@ -7,18 +7,24 @@
     tools:context=".JourneyFragment">
 
     <RelativeLayout
-        android:id="@+id/journal_content"
+        android:id="@+id/journey"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/notebook_template" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:hint="No journey is added yet" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myJourneyRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
-
         </androidx.recyclerview.widget.RecyclerView>
     </RelativeLayout>
-
 
 </FrameLayout>

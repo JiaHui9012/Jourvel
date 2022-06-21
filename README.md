@@ -10,7 +10,8 @@
     3. [Search Page](#searchPage)
     4. [Camera Page](#cameraPage)
     5. [Message Page](#messagePage)
-4. [Remarks](#remarks)
+5. [How To Use](#howToUse)
+6. [Remarks](#remarks)
 
 ## Description <a name="description"></a>
 
@@ -64,6 +65,10 @@ This application is a travel-based application which allows users to make their 
 * This page consists two types of messages:
   - Notification: show all the notifications from the application
   - Chats: show all the chats and messages from other users
+
+## How To Use <a name="howToUse"></a>
+
+See the Jourvel - User Manual pdf file for more information.
 
 ## Remarks <a name="remarks"></a>
 

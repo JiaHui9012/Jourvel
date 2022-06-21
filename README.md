@@ -29,6 +29,8 @@ This application is a travel-based application which allows users to make their 
 
 ## Functions of the Application <a name="functions"></a>
 
+The project is currently mainly focused on developing the profile page.
+
 ### Profile Page (Journal) <a name="profilePage"></a>
 
 * This application uses a journal way to display the profile page.
@@ -43,9 +45,9 @@ This application is a travel-based application which allows users to make their 
 ### Home Page <a name="homePage"></a>
 
 * This page is to show all the latest posts and articles published by users.
-* There are two ways to display the posts and articles: (Not Yet Developed)
+* There are two ways to display the posts and articles: 
   - Popular Tab: show all the popular and latest posts and articles
-  - Following Tab: show the latest posts and articles from people you follow
+  - Following Tab: show the latest posts and articles from people you follow (Not Yet Developed)
 * Users can like, comment, save posts/articles they want. (Not Yet Developed)
 * Users can also add useful or helpful posts/articles into their plans. (Not Yet Developed)
 * Users can view and manage the people they follow (Not Yet Developed)
